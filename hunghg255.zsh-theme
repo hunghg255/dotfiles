@@ -10,13 +10,27 @@ function package_version() {
   fi
 }
 
-PROMPT="╭─ %(?:%{$fg_bold[green]%}$(random_emoji):%{$fg_bold[red]%}$(random_emoji)) "
-PROMPT+='%{$fg[cyan]%}%c%{$reset_color%}%{$fg[green]%}$(package_version)% $(git_prompt_info)
-╰─$ '
+PROMPT="%F{118}╭─ %(?:%{$fg_bold[green]%}$(random_emoji):%{$fg_bold[red]%}$(random_emoji)) "
+PROMPT+='%F{159}%c%{$reset_color%}%F{202}$(package_version)% $(git_prompt_info)
+%F{118}╰─$ '
 
 RPROMPT='[%*]'
 
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%} <$(random_emoji) branch={%{$fg[red]%}"
+ZSH_THEME_GIT_PROMPT_PREFIX="%F{228} <$(random_emoji) branch={%F{197}"
+ZSH_THEME_GIT_PROMPT_CLEAN="%F{228}} />"
+
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}} /> %{$fg[yellow]%}"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%}} />"
+
+# Generate Color
+
+# for COLOR in {0..255}
+# do
+#     for STYLE in "38;5"
+#     do
+#         TAG="\033[${STYLE};${COLOR}m"
+#         STR="${COLOR}"
+#         echo -ne "${TAG}${STR}${NONE}  "
+#     done
+#     echo
+# done
