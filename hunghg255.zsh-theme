@@ -1,12 +1,16 @@
 EMOJI=(💩 🐦 🚀 🐞 🎨 🍕 🐭 👽 ☕️ 🔬 💀 🐷 🐼 🐶 🐸 🐧 🐳 🍔 🍣 🍻 🔮 💰 💎 💾 💜 🍪 🌞 🌍 🐌 🐓 🍄 🦄 🌈)
-NEWLINE=$'\n'
+
 function random_emoji {
   echo -n "$EMOJI[$RANDOM%$#EMOJI+1]"
 }
 
 function package_version() {
   if [ -f ./package.json ]; then
-    echo "@"$(grep '"version"' ./package.json | head -n 1 | awk -F'"' '{print $4}')
+    VERSION=(""$(grep '"version"' ./package.json | head -n 1 | awk -F'"' '{print $4}'))
+
+    if [[ -n $VERSION ]]; then
+      echo "@$VERSION"
+    fi
   fi
 }
 
@@ -21,8 +25,6 @@ ZSH_THEME_GIT_PROMPT_CLEAN="%F{228}} />"
 
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}} /> %{$fg[yellow]%}"
-
-# Generate Color
 
 # for COLOR in {0..255}
 # do
