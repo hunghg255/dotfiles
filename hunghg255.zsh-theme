@@ -14,11 +14,11 @@ function package_version() {
   fi
 }
 
-PROMPT="%F{118}╭─ %(?:%{$fg_bold[green]%}$(random_emoji):%{$fg_bold[red]%}$(random_emoji)) "
+PROMPT="%F{118}╭─[⏰ %D{%f/%m/%y} | %*] 📝"
 PROMPT+='%F{159}%c%{$reset_color%}%F{202}$(package_version)% $(git_prompt_info)
 %F{118}╰─$ '
 
-RPROMPT='[%*]'
+# RPROMPT='[%*]'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%F{228} <$(random_emoji) branch={%F{197}"
 ZSH_THEME_GIT_PROMPT_CLEAN="%F{228}} />"
