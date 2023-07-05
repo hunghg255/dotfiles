@@ -14,9 +14,9 @@ function package_version() {
   fi
 }
 
-PROMPT="%F{118}╭─[⏰ %D{%f/%m/%y} | %*] 📝"
+PROMPT="%F{36}╭─[⏰ %D{%f/%m/%y} | %*] 📝"
 PROMPT+='%F{159}%c%{$reset_color%}%F{202}$(package_version)% $(git_prompt_info)
-%F{118}╰─$ '
+%F{36}╰─$ '
 
 # RPROMPT='[%*]'
 
