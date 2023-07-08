@@ -12,6 +12,7 @@ curl https://raw.githubusercontent.com/hunghg255/dotfiles/master/install.sh | sh
 
 - Show version
 - Show time
+- Show excecution time commands
 - Icon funny
 
 ![asd](./assest/bash.png)

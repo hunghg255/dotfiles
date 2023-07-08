@@ -14,6 +14,18 @@ function package_version() {
   fi
 }
 
+preexec() {
+  timer=${timer:-$SECONDS}
+}
+BRed='\033[1;31m'
+precmd() {
+  if [ $timer ]; then
+    timer_show=$(echo "scale=1; $SECONDS-$timer" | bc)
+    echo "${BRed}>>> Execution time: ${timer_show}s\n"
+    unset timer
+  fi
+}
+
 PROMPT="%F{36}╭─[⏰ %D{%f/%m/%y} | %*] 📝"
 PROMPT+='%F{159}%c%{$reset_color%}%F{202}$(package_version)% $(git_prompt_info)
 %F{36}╰─$ '
