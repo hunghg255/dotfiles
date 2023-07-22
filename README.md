@@ -16,3 +16,9 @@ curl https://raw.githubusercontent.com/hunghg255/dotfiles/master/install.sh | sh
 - Icon funny
 
 ![asd](./assest/bash.png)
+
+### About
+
+<a href="https://www.buymeacoffee.com/hunghg255" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
+
+Gia Hung – [hung.hg](https://hung.thedev.id)
