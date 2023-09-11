@@ -36,7 +36,7 @@ ZSH_THEME_GIT_PROMPT_PREFIX="%F{228} <$(random_emoji) branch={%F{197}"
 ZSH_THEME_GIT_PROMPT_CLEAN="%F{228}} />"
 
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}} /> %{$fg[yellow]%}"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[yellow]%}} /> %{$fg[yellow]%}"
 
 # for COLOR in {0..255}
 # do
@@ -44,7 +44,7 @@ ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}} /> %{$fg[yellow]%}"
 #     do
 #         TAG="\033[${STYLE};${COLOR}m"
 #         STR="${COLOR}"
-#         echo -ne "${TAG}${STR}${NONE}  "
+#         echo -ne "${TAG}${STR}"
 #     done
 #     echo
 # done
