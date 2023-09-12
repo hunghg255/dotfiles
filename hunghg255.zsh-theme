@@ -14,6 +14,31 @@ function package_version() {
   fi
 }
 
+SPACESHIP_NODE_DEFAULT_VERSION="${SPACESHIP_NODE_DEFAULT_VERSION:=""}"
+
+function _exists() {
+  command -v $1 > /dev/null 2>&1
+}
+
+function node_version() {
+  # Show NODE status only for JS-specific folders
+  [[ -f package.json || -d node_modules || -n *.js(#qN) ]] || return
+
+  local node_version
+
+  if _exists nvm; then
+    node_version=$(nvm current 2>/dev/null)
+    [[ $node_version == "system" || $node_version == "node" ]] && return
+  elif _exists node; then
+    node_version=$(node -v)
+    [[ $node_version == $SPACESHIP_NODE_DEFAULT_VERSION ]] && return
+  else
+    return
+  fi
+
+  echo "$node_version"
+}
+
 preexec() {
   timer=${timer:-$SECONDS}
 }
@@ -26,7 +51,7 @@ precmd() {
   fi
 }
 
-PROMPT="%F{36}╭─[⏰ %D{%f/%m/%y} | %*] 📝"
+PROMPT="%F{36}╭─[⏰ %D{%f/%m/%y} %* | %F{40}⬢ $(node_version)%F{36}] 📝"
 PROMPT+='%F{159}%c%{$reset_color%}%F{202}$(package_version)% $(git_prompt_info)
 %F{36}╰─$ '
 

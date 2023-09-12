@@ -10,6 +10,7 @@ curl https://raw.githubusercontent.com/hunghg255/dotfiles/master/install.sh | sh
 
 ## Terminal Custom
 
+- Show node version
 - Show version
 - Show time
 - Show excecution time commands
