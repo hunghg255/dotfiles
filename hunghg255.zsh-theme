@@ -75,18 +75,18 @@ precmd() {
     elif ((s > 0)); then timeprompt=${s}.$(printf %03d $ms)s # 1.234s
     else timeprompt=${ms}ms
     fi
-    export ZSH_THEME_GIT_PROMPT_CLEAN="%F{228}} execute={%F{197}${timeprompt}%F{228}} />"
+    export ZSH_THEME_GIT_PROMPT_CLEAN="%F{228}} %F{228}execute={%F{197}${timeprompt}%F{228}} />"
     unset timer
     return
   fi
-  export ZSH_THEME_GIT_PROMPT_CLEAN="%F{228}} execute={%F{197}0ms%F{228}} />"
+  export ZSH_THEME_GIT_PROMPT_CLEAN="%F{228}} %F{228}execute={%F{197}0ms%F{228}} />"
 }
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%F{228} <$(random_emoji) branch={%F{197}"
-ZSH_THEME_GIT_PROMPT_CLEAN="%F{228}} execute={%F{197}0ms%F{228}} />"
+ZSH_THEME_GIT_PROMPT_CLEAN="%F{228}} %F{228}execute={%F{197}0ms%F{228}} />"
 
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[yellow]%}} execute={%F{197}0ms%F{228}} /> %{$fg[yellow]%}"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[yellow]%}} %F{228}execute={%F{197}0ms%F{228}} /> %{$fg[yellow]%}"
 
 PROMPT="%F{36}╭─[⏰ %D{%f/%m/%y} %* | %F{40}⬢ $(node_version)%F{36}] 📝"
 PROMPT+='%F{159}%c%{$reset_color%}%F{202}$(package_version)% $(git_prompt_info)
