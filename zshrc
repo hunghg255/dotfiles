@@ -13,6 +13,7 @@ plugins=(
   zsh-z
 )
 
+# https://ohmyz.sh/
 source $ZSH/oh-my-zsh.sh
 
 alias zshconfig="nano ~/.zshrc"
